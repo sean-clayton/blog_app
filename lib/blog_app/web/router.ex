@@ -14,4 +14,10 @@ defmodule BlogApp.Web.Router do
     # Posts
     resources "/posts", PostController, except: [:new, :edit]
   end
+
+  forward "/graph", Absinthe.Plug,
+    schema: BlogApp.Schema
+  
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: BlogApp.Schema
 end
