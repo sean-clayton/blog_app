@@ -4,6 +4,7 @@ defmodule BlogApp.Blog.Post do
   schema "blog_posts" do
     field :body, :string
     field :title, :string
+    belongs_to :accounts_users, BlogApp.Accounts.User, foreign_key: :accounts_users_id
 
     timestamps()
   end
